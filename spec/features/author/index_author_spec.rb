@@ -27,5 +27,21 @@ describe "Index author page", type: :feature do
 
     expect(page).to have_link 'New', href: new_author_path
   end
+
+  it "should have links to show" do
+    # https://guides.rubyonrails.org/routing.html#path-and-url-helpers
+    @alan = FactoryBot.create :author
+    visit authors_path
+
+    expect(page).to have_link 'Show', href: author_path(@alan)
+  end
+
+  it "should have links to edit" do
+    # https://guides.rubyonrails.org/routing.html#path-and-url-helpers
+    @alan = FactoryBot.create :author
+    visit authors_path
+
+    expect(page).to have_link 'Edit', href: edit_author_path(@alan)
+  end
   
 end

@@ -10,4 +10,9 @@ RSpec.describe Paper, type: :model do
     expect(paper.venue).to eq('Potsdam')
     expect(paper.year).to eq(2021)
   end
+
+  it "should have an empty list of authors" do
+    paper = Paper.new()
+    expect(paper.authors).to eq([])
+  end
 end
